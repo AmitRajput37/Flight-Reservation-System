@@ -1,5 +1,10 @@
 package com.company;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class TouristTicket extends Ticket{
     private String hotelAddress;
     private String[] selectedTouristLocation;
@@ -33,10 +38,14 @@ public class TouristTicket extends Ticket{
     }
 
     public void removeTouristLocation(String location){
-
+        List<String> list = new ArrayList<String>(Arrays.asList(selectedTouristLocation));
+        list.remove(location);
+        selectedTouristLocation = list.toArray(new String[0]);
     }
 
     public void addTouristLocation(String location){
-
+            selectedTouristLocation = Arrays.copyOf(selectedTouristLocation,selectedTouristLocation.length+1);
+            selectedTouristLocation[selectedTouristLocation.length-1]=location;
+        }
     }
-}
+

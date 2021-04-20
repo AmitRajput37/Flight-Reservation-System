@@ -1,6 +1,7 @@
 package com.company;
 
 import java.text.ParseException;
+import java.util.Arrays;
 
 public class Main {
 
@@ -9,11 +10,18 @@ public class Main {
 
     }
 
+    public static void printDetails(Flight flight,Passenger passenger){
+        System.out.println(passenger.getContactDetails());
+        System.out.println(passenger.getAddressDetails());
+        System.out.println(flight.getFlightDetails());
+    }
+
     public static void main(String[] args) throws ParseException {
 	// write your code here
         Flight plane = new Flight("a121","indigo",100,50);
         System.out.println(plane.getFlightDetails());
         System.out.println(plane.checkAvailability());
+
 
         Passenger passenger = new Passenger("moti nagar","amravati","mh",
                 "amit","9890984945","amit@gmail.com");
@@ -25,6 +33,7 @@ public class Main {
         TouristTicket touristTicket = new TouristTicket("99999999","amravati","nagpur",plane,"252555",
                 "5656665",passenger,"101",5000.50f,false,"bankok",
                 new String[]{"amt","nag","bang"});
+
 
         printTicketDetails(regularTicket);
         printTicketDetails(touristTicket);
@@ -39,6 +48,12 @@ public class Main {
         passenger.updateContactDetails("karan","656226616626","karan@gmail.com");// updating contact details whenever required
         System.out.println("updated contact: " +passenger.getContactDetails()); //printing updated contact
 
+        printDetails(plane,passenger); // printing flight and passenger details
 
+        touristTicket.addTouristLocation("hyd");
+        System.out.println("adding location: "+Arrays.toString(touristTicket.getTouristLocation())); // adding tourist location
+
+        touristTicket.removeTouristLocation("hyd");
+        System.out.println("removing location: "+Arrays.toString(touristTicket.getTouristLocation())); // removing tourist location
     }
 }

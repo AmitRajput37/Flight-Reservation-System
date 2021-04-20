@@ -40,7 +40,7 @@ public abstract class Ticket {
     }
 
     public Flight getFlight() {
-        return flight;
+        return this.flight;
     }
 
     public void setFlight(Flight flight) {
@@ -129,6 +129,6 @@ public abstract class Ticket {
     }
 
     public void cancel(){
-
+        System.out.println("ticket has been cancelled");
     }
 }
