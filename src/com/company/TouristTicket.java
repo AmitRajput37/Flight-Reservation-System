@@ -21,6 +21,7 @@ public class TouristTicket {
         this.selectedTouristLocation = selectedTouristLocation;
     }
 
+
     public String getHotelAddress(){
         return this.hotelAddress;
     }
