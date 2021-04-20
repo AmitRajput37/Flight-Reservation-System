@@ -45,28 +45,20 @@ public class Flight {
         this.bookedSeats = bookedSeats;
     }
 
-    public Flight(Flight flight){
-        this.flightNumber =flight.flightNumber;
-        this.airline = flight.airline;
-        this.capacity = flight.capacity;
-        this.bookedSeats = flight.bookedSeats;
-    }
-
     public String getFlightDetails(){
-        return "flight number: "+this.flightNumber+"Airline: "+this.airline+"capacity: "+this.capacity+"Booked seats: "
+        return "flight number: "+this.flightNumber+" Airline: "+this.airline+" capacity: "+this.capacity+" Booked seats: "
                 +this.bookedSeats;
     }
 
     public boolean checkAvailability(){
-        return this.capacity <= this.bookedSeats;
+        return this.bookedSeats < this.capacity;
     }
 
     public void incrementBookingCounter(){
-        int bookingCounter = 0;
-        for(int i=0;i<=this.capacity;i++){
-            bookingCounter++;
+        this.capacity = this.capacity - this.bookedSeats; // calculating seats available for booking
+        System.out.println("Number of seats available: "+this.capacity); // printing number of seats available.
         }
     }
 
 
-}
+

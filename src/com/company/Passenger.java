@@ -46,11 +46,20 @@ public class Passenger {
         return  address.street+", "+address.city+", "+address.state;
     }
 
+    public void updateAddressDetails(String addressStreet,String addressCity,String addressState){
+            this.address = new Address(addressStreet,addressCity,addressState);
+        }
+
+
     public String getContactDetails(){
         return contact.name+", "+contact.phone+", "+contact.email;
     }
 
+    public void updateContactDetails(String contactName,String contactPhone,String contactEmail){
+        this.contact = new Contact(contactName,contactPhone,contactEmail);
+    }
+
     public int getPassengerCount(){
-        return idCounter;
+        return this.id;
     }
 }

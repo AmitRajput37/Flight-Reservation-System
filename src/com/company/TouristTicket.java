@@ -1,6 +1,6 @@
 package com.company;
 
-public class TouristTicket {
+public class TouristTicket extends Ticket{
     private String hotelAddress;
     private String[] selectedTouristLocation;
 
@@ -16,7 +16,9 @@ public class TouristTicket {
         this.selectedTouristLocation = selectedTouristLocation;
     }
 
-    public TouristTicket(String hotelAddress, String[] selectedTouristLocation) {
+    public TouristTicket(String pnr,String from,String to,Flight flight,String departureDateTime,String arrivalDateTime,
+                         Passenger passenger,String seatNo,float price,boolean cancelled,String hotelAddress, String[] selectedTouristLocation) {
+        super(pnr,from,to,flight,departureDateTime,arrivalDateTime,passenger,seatNo,price,cancelled);
         this.hotelAddress = hotelAddress;
         this.selectedTouristLocation = selectedTouristLocation;
     }

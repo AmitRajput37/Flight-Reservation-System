@@ -1,6 +1,10 @@
 package com.company;
 
-public class Ticket {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public abstract class Ticket {
     private String pnr;
     private String from;
     private String to;
@@ -116,8 +120,12 @@ public class Ticket {
         }
     }
 
-    public int getFlightDuration(){
-        return 0;
+    public long getFlightDuration() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+        Date arrival = format.parse(this.arrivalDateTime);
+        Date departure = format.parse(this.departureDateTime);
+
+        return (arrival.getTime()-departure.getTime())/60000/60;
     }
 
     public void cancel(){
